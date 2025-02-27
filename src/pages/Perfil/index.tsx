@@ -7,38 +7,38 @@ import Header from "../../components/Header"
 const produtosPerfil: Product[] = [
     {
         id: 1,
-        title: 'Produto 1',
-        description: 'teste 1',
+        title: 'Pizza Marguerita',
+        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
         image: pizza
     },
     {
         id: 2,
-        title: 'Produto 2',
-        description: 'teste 2',
+        title: 'Pizza Marguerita',
+        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
         image: pizza
     },
     {
         id: 3,
-        title: 'Produto 3',
-        description: 'teste 3',
+        title: 'Pizza Marguerita',
+        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
         image: pizza
     },
     {
         id: 4,
-        title: 'Produto 4',
-        description: 'teste 4',
+        title: 'Pizza Marguerita',
+        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
         image: pizza
     },
     {
         id: 5,
-        title: 'Produto 5',
-        description: 'teste 5',
+        title: 'Pizza Marguerita',
+        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
         image: pizza
     },
     {
         id: 6,
-        title: 'Produto 6',
-        description: 'teste 6',
+        title: 'Pizza Marguerita',
+        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
         image: pizza
     }
 ]
