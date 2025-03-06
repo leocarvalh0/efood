@@ -11,15 +11,17 @@ const produtosHome: Product[] = [
         description: 'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
         image: sushi,
         avalition: 4.9,
-        infos: ['Destaque da semana', 'Japonês']
-    },
-    {
+        infos: ['Destaque da semana', 'Japonês'],
+        buttonValue: 'Saiba mais'
+        },
+        {
         id: 2,
         title: 'La Dolce Vita Trattoria',
         description: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
         image: macarrao,
         avalition: 4.6,
-        infos: ['Italiano']
+        infos: ['Italiano'],
+        buttonValue: 'Saiba mais'
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ const produtosHome: Product[] = [
         description: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
         image: macarrao,
         avalition: 4.6,
-        infos: ['Italiano']
+        infos: ['Italiano'],
+        buttonValue: 'Saiba mais'
     },
     {
         id: 4,
@@ -35,7 +38,8 @@ const produtosHome: Product[] = [
         description: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
         image: macarrao,
         avalition: 4.6,
-        infos: ['Italiano']
+        infos: ['Italiano'],
+        buttonValue: 'Saiba mais'
     },
     {
         id: 5,
@@ -43,7 +47,8 @@ const produtosHome: Product[] = [
         description: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
         image: macarrao,
         avalition: 4.6,
-        infos: ['Italiano']
+        infos: ['Italiano'],
+        buttonValue: 'Saiba mais'
     },
     {
         id: 6,
@@ -51,7 +56,8 @@ const produtosHome: Product[] = [
         description: 'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
         image: macarrao,
         avalition: 4.6,
-        infos: ['Italiano']
+        infos: ['Italiano'],
+        buttonValue: 'Saiba mais'
     }
 ]
 

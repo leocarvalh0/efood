@@ -7,8 +7,9 @@ export type Props = {
     title: string,
     description: string,
     image: string,
-    avaliation?: number
-    infos?: string[]
+    avaliation?: number,
+    infos?: string[],
+    buttonValue: string
 }
 
 const Card = ({
@@ -16,7 +17,8 @@ const Card = ({
     description,
     image,
     avaliation,
-    infos
+    infos,
+    buttonValue
 }: Props) => (
     <CardContainer >
         <img src={image} alt={title} />
@@ -35,7 +37,7 @@ const Card = ({
             </InfosHeader>
             <Description>{description}</Description>
             <Link to="/perfil">
-                <Button>Saiba mais</Button>
+                <Button>{buttonValue}</Button>
             </Link>
         </CardInfos>
     </CardContainer>

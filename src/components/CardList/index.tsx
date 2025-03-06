@@ -19,6 +19,7 @@ const CardList = ({ products, tipo }: Props) => (
                     image={product.image}
                     avaliation={product.avalition} 
                     infos={product.infos}
+                    buttonValue={product.buttonValue}
                 />
             ))}
         </List>     

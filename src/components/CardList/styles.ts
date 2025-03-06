@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 import { Props } from '.'
-import { Avaliation, Button, CardContainer } from '../Card/styles'
+import { Avaliation, Button, CardContainer, CardInfos } from '../Card/styles'
 import { cores } from '../../styles'
 
 export const List = styled.ul<Omit<Props, 'products'>>`
@@ -16,6 +16,10 @@ export const List = styled.ul<Omit<Props, 'products'>>`
         padding: ${(props) => props.tipo === 'home' ? '0' : '8px'};
         background-color: ${(props) => props.tipo === 'home' ? cores.brancoDois : cores.vermelho};
         color: ${(props) => props.tipo === 'home' ? cores.vermelho : cores.bege};
+    }
+
+    ${CardInfos} {
+        padding: ${(props) => props.tipo === 'home' ? '8px' : '8px 0 0'};
     }
 
     ${Button} {
