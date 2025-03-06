@@ -2,6 +2,7 @@ import { HeaderContainer, Logo } from './styles'
 import logo from '../../assets/images/logo.png'
 import fundo from '../../assets/images/fundo.png'
 import { Container } from '../../styles'
+import { Link } from 'react-router-dom'
 
 export type Props = {
     infos: string[]
@@ -10,9 +11,9 @@ export type Props = {
 
 const Header = ({ infos, type }: Props) => (
     <HeaderContainer type={type} style={{ backgroundImage: `url(${fundo})` }}>
-        <a href="/">
+        <Link to="/">
             <Logo src={logo} alt="Efood" />
-        </a>
+        </Link>
         {type === "home" ? (
             <p style={{ width: '539px', margin: '0 auto' }} >{infos}</p>
         ) : (

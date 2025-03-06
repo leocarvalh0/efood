@@ -1,6 +1,7 @@
 import { CardContainer, CardInfos, Button, Description, InfosHeader, Title, Avaliation, Tags } from './styles'
 import estrela from '../../assets/images/estrela.png'
 import Tag from '../Tag'
+import { Link } from 'react-router-dom'
 
 export type Props = {
     title: string,
@@ -33,7 +34,9 @@ const Card = ({
                 </Avaliation>
             </InfosHeader>
             <Description>{description}</Description>
-            <Button>Saiba mais</Button>
+            <Link to="/perfil">
+                <Button>Saiba mais</Button>
+            </Link>
         </CardInfos>
     </CardContainer>
 )

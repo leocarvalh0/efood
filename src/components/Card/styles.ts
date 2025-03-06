@@ -4,6 +4,10 @@ import { cores } from '../../styles'
 export const CardContainer = styled.div`
     font-size: 14px;
     position: relative;
+
+    img {
+        display: block;
+    }
 `
 
 export const CardInfos = styled.div`
@@ -28,6 +32,9 @@ export const Description = styled.p`
 `
 
 export const Button = styled.button`
+    width: 82px;
+    height: 24px;   
+    padding: 4px 6px;
     border: none;
     font-weight: bold;
 `
