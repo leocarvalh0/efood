@@ -1,5 +1,4 @@
 import Product from "../../models/Product";
-import { Container } from "../../styles";
 import Card from "../Card";
 import { List } from './styles'
 
@@ -9,7 +8,7 @@ export type Props = {
 }
 
 const CardList = ({ products, tipo }: Props) => (
-    <Container>
+    <div className="container">
         <List tipo={tipo}>
             {products.map((product) => (
                 <Card 
@@ -23,7 +22,7 @@ const CardList = ({ products, tipo }: Props) => (
                 />
             ))}
         </List>     
-    </Container>
+    </div>
 )
 
 export default CardList

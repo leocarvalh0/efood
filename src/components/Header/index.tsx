@@ -1,7 +1,6 @@
 import { HeaderContainer, Logo } from './styles'
 import logo from '../../assets/images/logo.png'
 import fundo from '../../assets/images/fundo.png'
-import { Container } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export type Props = {
@@ -17,11 +16,11 @@ const Header = ({ infos, type }: Props) => (
         {type === "home" ? (
             <p style={{ width: '539px', margin: '0 auto' }} >{infos}</p>
         ) : (
-            <Container>
+            <div className="container">
                 {infos.map((info) => (
                     <p>{info}</p>
                 ))}
-            </Container>
+            </div>
         )}
     </HeaderContainer>
 )

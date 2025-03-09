@@ -20,9 +20,10 @@ export const GlobalCss = createGlobalStyle`
         background-color: ${cores.brancoUm};
         color: ${cores.vermelho};
     }
-`
 
-export const Container = styled.div`
-    max-width: 1024px;
-    margin: auto; 
+    .container {
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto; 
+    }
 `

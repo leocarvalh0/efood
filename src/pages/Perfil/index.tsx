@@ -3,6 +3,7 @@ import pizza from "../../assets/images/pizza.png"
 import CardList from "../../components/CardList"
 import Banner from "../../components/Banner"
 import Header from "../../components/Header"
+import { useState } from "react"
 
 const produtosPerfil: Product[] = [
     {
@@ -49,12 +50,14 @@ const produtosPerfil: Product[] = [
     }
 ]
 
-const Perfil = () => (
-    <>
-        <Header type="perfil" infos={['Restaurantes', '0 produto(s) no carrinho']} />
-        <Banner />
-        <CardList products={produtosPerfil} tipo="perfil" />
-    </>
-)
+const Perfil = () => {
+    return (
+        <>
+            <Header type="perfil" infos={['Restaurantes', '0 produto(s) no carrinho']} />
+            <Banner />
+            <CardList products={produtosPerfil} tipo="perfil" />
+        </>
+    )
+}
 
 export default Perfil

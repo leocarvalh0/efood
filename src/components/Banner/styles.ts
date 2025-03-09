@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import banner from '../../assets/images/macarrao.png'
-import { Container, cores } from "../../styles";
+import { cores } from "../../styles";
 
 export const BannerContainer = styled.div`
     background-image: url(${banner});
@@ -14,9 +14,8 @@ export const BannerContainer = styled.div`
     font-weight: bold;
     position: relative;
 
-    ${Container} {
+    .container {
         position: relative;
-        z-index: 1;
     }
 
     &::before {
