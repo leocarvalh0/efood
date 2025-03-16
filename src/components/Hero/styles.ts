@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import banner from '../../assets/images/macarrao.png'
 import { cores } from "../../styles";
 
-export const BannerContainer = styled.div`
-    background-image: url(${banner});
+export const HeroContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
