@@ -1,53 +1,41 @@
-import { Container, SectionTitle, FooterSection, Links, Link } from './styles'
+import { FooterContainer, SocialLinks, Logo } from './styles'
 
-const currentYear = new Date().getFullYear()
+import instagram from '../../assets/images/instagram.png'
+import facebook from '../../assets/images/facebook.png'
+import twitter from '../../assets/images/twitter.png'
+import efood from '../../assets/images/logo.png'
+import { Link } from 'react-router-dom'
 
-const Footer = () => (
-  <Container>
-    <div className="container">
-      <FooterSection>
-        <SectionTitle>Categorias</SectionTitle>
-        <Links>
-          <li>
-            <Link>RPG</Link>
-          </li>
-          <li>
-            <Link>AÇÃO</Link>
-          </li>
-          <li>
-            <Link>AVENTURA</Link>
-          </li>
-          <li>
-            <Link>ESPORTES</Link>
-          </li>
-          <li>
-            <Link>SIMULAÇÃO</Link>
-          </li>
-          <li>
-            <Link>ESTRATÉGIA</Link>
-          </li>
-          <li>
-            <Link>FPS</Link>
-          </li>
-        </Links>
-      </FooterSection>
-      <FooterSection>
-        <SectionTitle>Acesso rápido</SectionTitle>
-        <Links>
-          <li>
-            <Link>Novidades</Link>
-          </li>
-          <li>
-            <Link>Promoções</Link>
-          </li>
-          <li>
-            <Link>Em breve</Link>
-          </li>
-        </Links>
-      </FooterSection>
-      <p>{currentYear} - &copy; E-PLAY Todos os direitos reservados</p>
-    </div>
-  </Container>
-)
+const Footer = () => {
+  return (
+    <FooterContainer>
+      <Link to={'/'}>
+        <Logo src={efood} alt="Instagram" />
+      </Link>
+      <SocialLinks>
+        <li>
+          <Link to={'/'}>
+            <img src={instagram} alt="Instagram" />
+          </Link>
+        </li>
+        <li>
+          <Link to={'/'}>
+            <img src={facebook} alt="Facebook" />
+          </Link>
+        </li>
+        <li>
+          <Link to={'/'}>
+            <img src={twitter} alt="Twitter" />
+          </Link>
+        </li>
+      </SocialLinks>
+      <p>
+        A efood é uma plataforma para divulgação de estabelecimentos, a
+        responsabilidade pela entrega, qualidade dos produtos é toda do
+        estabelecimento contratado.{' '}
+      </p>
+    </FooterContainer>
+  )
+}
 
 export default Footer

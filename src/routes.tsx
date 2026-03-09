@@ -1,14 +1,11 @@
-import { Routes, Route } from 'react-router-dom'
-
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import Categories from './pages/Categories'
-import Product from './pages/Product'
+import Perfil from './pages/Perfil'
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/categories" element={<Categories />} />
-    <Route path="/product/:id" element={<Product />} />
+    <Route path="/perfil" element={<Perfil />} />
   </Routes>
 )
 

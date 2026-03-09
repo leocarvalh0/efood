@@ -1,35 +1,36 @@
+import { HeaderContainer } from './styles'
+
+import efood from '../../assets/images/logo.png'
+import fundo from '../../assets/images/fundo-header.png'
 import { Link } from 'react-router-dom'
 
-import { HeaderBar, Links, LinkItem, LinkCart } from './styles'
+export type Props = {
+  type: 'home' | 'perfil'
+}
 
-import logo from '../../assets/images/logo.svg'
-import carrinho from '../../assets/images/carrinho.svg'
+const Header = ({ type }: Props) => {
+  if (type === 'home') {
+    return (
+      <HeaderContainer type="home" style={{ backgroundImage: `url(${fundo})` }}>
+        <Link to="/">
+          <img src={efood} alt="Efood" />
+        </Link>
+        <h1>Viva experiências gastronômicas no conforto da sua casa</h1>
+      </HeaderContainer>
+    )
+  }
 
-const Header = () => (
-  <HeaderBar>
-    <div>
-      <Link to="/">
-        <img src={logo} alt="EPLAY" />
-      </Link>
-      <nav>
-        <Links>
-          <LinkItem>
-            <Link to="/categories">Categorias</Link>
-          </LinkItem>
-          <LinkItem>
-            <a href="#">Novidades</a>
-          </LinkItem>
-          <LinkItem>
-            <a href="#">Promoções</a>
-          </LinkItem>
-        </Links>
-      </nav>
+  return (
+    <div style={{ backgroundImage: `url(${fundo})` }}>
+      <HeaderContainer className="container" type="perfil">
+        <p>Restaurantes</p>
+        <Link to="/">
+          <img src={efood} alt="Efood" />
+        </Link>
+        <p>0 produtos no carrinho</p>
+      </HeaderContainer>
     </div>
-    <LinkCart href="#">
-      0 - produto(s)
-      <img src={carrinho} alt="carrinho" />
-    </LinkCart>
-  </HeaderBar>
-)
+  )
+}
 
 export default Header

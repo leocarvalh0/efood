@@ -1,59 +1,68 @@
-import { useEffect, useState } from 'react'
+import RestaurantsList from '../../components/RestaurantsList'
+import Header from '../../components/Header'
+import { Restaurant } from '../../models/Restaurant'
+import sushi from '../../assets/images/sushi.png'
 
-import Banner from '../../components/Banner'
-import ProductsList from '../../components/ProductsList'
-
-import resident from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import zelda from '../../assets/images/zelda.png'
-import starWars from '../../assets/images/star_wars.png'
-
-import { useGetSoonQuery, useGetOnSaleQuery } from '../../services/api'
-
-export interface GalleryItem {
-  type: 'image' | 'video'
-  url: string
-}
-
-export type Game = {
-  id: number
-  name: string
-  description: string
-  release_date?: string
-  prices: {
-    discount?: number
-    old?: number
-    current?: number
+const restaurants: Restaurant[] = [
+  {
+    id: 1,
+    image: sushi,
+    title: 'Hioki Sushi',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    avaliation: '4,9'
+  },
+  {
+    id: 2,
+    image: sushi,
+    title: 'Hioki Sushi',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    avaliation: '4,9'
+  },
+  {
+    id: 3,
+    image: sushi,
+    title: 'Hioki Sushi',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    avaliation: '4,9'
+  },
+  {
+    id: 4,
+    image: sushi,
+    title: 'Hioki Sushi',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    avaliation: '4,9'
+  },
+  {
+    id: 5,
+    image: sushi,
+    title: 'Hioki Sushi',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    avaliation: '4,9'
+  },
+  {
+    id: 6,
+    image: sushi,
+    title: 'Hioki Sushi',
+    description:
+      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+    avaliation: '4,9'
   }
-  details: {
-    category: string
-    system: string
-    developer: string
-    publisher: string
-    languages: string[]
-  }
-  media: {
-    thumbnail: string
-    cover: string
-    gallery: GalleryItem[]
-  }
-}
+]
 
 const Home = () => {
-  const { data: onSaleGames } = useGetOnSaleQuery()
-  const { data: soonGames } = useGetSoonQuery()
-
-  if (onSaleGames && soonGames) {
-    return (
-      <>
-        <Banner />
-        <ProductsList games={onSaleGames} title="Promoções" background="gray" />
-        <ProductsList games={soonGames} title="Em breve" background="black" />
-      </>
-    )
-  }
-
-  return <h4>Carregando...</h4>
+  return (
+    <>
+      <Header type="home" />
+      <div className="container">
+        <RestaurantsList restaurants={restaurants} />
+      </div>
+    </>
+  )
 }
 
 export default Home

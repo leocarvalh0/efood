@@ -1,41 +1,30 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const HeaderBar = styled.header`
-  background-color: ${cores.cinza};
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 80px;
+import { Props } from '.'
 
-  a {
-    color: ${cores.branca};
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-  }
-`
-
-export const Links = styled.ul`
-  display: flex;
-  margin-left: 40px;
-`
-
-export const LinkItem = styled.li`
-  margin-right: 16px;
-`
-
-export const LinkCart = styled.a`
-  display: flex;
+export const HeaderContainer = styled.header<Props>`
+  display: ${({ type }) => (type === 'home' ? '' : 'flex')};
+  background-repeat: no-repeat;
+  background-size: size;
+  justify-content: ${({ type }) => (type === 'home' ? '' : 'space-between')};
+  align-items: ${({ type }) => (type === 'home' ? '' : 'center')};
+  height: ${({ type }) => (type === 'home' ? '384px' : '186px')};
+  text-align: center;
+  padding: 40px 0;
+  color: ${cores.vermelhoClaro};
+  font-weight: bold;
+  font-size: 18px;
 
   img {
-    margin-left: 16px;
+    width: 125px;
+    height: 58px;
+    margin-bottom: ${({ type }) => (type === 'home' ? '140px' : '0')};
+  }
+
+  h1 {
+    width: 539px;
+    margin: 0 auto;
+    font-size: 36px;
   }
 `
