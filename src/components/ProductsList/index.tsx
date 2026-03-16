@@ -1,21 +1,38 @@
 import Card from '../Card'
-import { Product } from '../../models/Product'
 import { Container } from './styles'
 
-type Products = {
-  products: Product[]
+type Product = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
 
-const ProductsList = ({ products }: Products) => {
+type Props = {
+  restaurants: Product[]
+}
+
+const ProductsList = ({ restaurants }: Props) => {
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 132) {
+      return descricao.slice(0, 129) + '...'
+    }
+    return descricao
+  }
+
   return (
     <Container>
-      {products.map((product) => (
+      {restaurants.map((product) => (
         <Card
-          type="product"
-          image={product.image}
-          description={product.description}
-          title={product.title}
+          preco={product.preco}
           key={product.id}
+          title={product.nome}
+          description={getDescricao(product.descricao)}
+          image={product.foto}
+          type="product"
+          id={product.id}
         />
       ))}
     </Container>

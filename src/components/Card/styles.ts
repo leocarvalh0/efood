@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import { Props } from '.'
+import { ButtonContainer } from '../Button/styles'
 
 export const CardContainer = styled.div<
-  Omit<Props, 'image' | 'title' | 'description' | 'button'>
+  Omit<
+    Props,
+    'image' | 'title' | 'description' | 'destacado' | 'tipo' | 'id' | 'preco'
+  >
 >`
   width: ${({ type }) => (type === 'restaurant' ? '472px' : '320px')};
   padding: ${({ type }) => (type === 'restaurant' ? '0' : '8px')};
@@ -12,10 +16,26 @@ export const CardContainer = styled.div<
     type === 'restaurant' ? `${cores.branco}` : `${cores.vermelhoClaro}`};
   color: ${({ type }) =>
     type === 'restaurant' ? `${cores.vermelhoClaro}` : `${cores.bege}`};
+
+  img {
+    width: 100%;
+    height: ${({ type }) => (type === 'restaurant' ? '217px' : '167px')};
+    object-fit: cover;
+  }
 `
 
 export const Infos = styled.div<
-  Omit<Props, 'image' | 'title' | 'description' | 'button'>
+  Omit<
+    Props,
+    | 'button'
+    | 'image'
+    | 'title'
+    | 'description'
+    | 'destacado'
+    | 'tipo'
+    | 'id'
+    | 'preco'
+  >
 >`
   border: ${({ type }) =>
     type === 'restaurant' ? `1px solid ${cores.vermelhoClaro}` : 'none'};
@@ -33,6 +53,10 @@ export const Infos = styled.div<
     line-height: 22px;
     font-size: 14px;
     margin-bottom: 8px;
+  }
+
+  ${ButtonContainer} {
+    width: 100%;
   }
 `
 
@@ -56,4 +80,68 @@ export const Tags = styled.div`
   position: absolute;
   top: 16px;
   right: 8px;
+`
+
+export const ModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  &.visible {
+    display: flex;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+  }
+`
+
+export const ModalContent = styled.div`
+  padding: 32px;
+  width: 100%;
+  height: 344px;
+  background-color: ${cores.vermelhoClaro};
+  color: ${cores.branco};
+  display: flex;
+  z-index: 1;
+  position: relative;
+
+  header > img {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    margin-right: 0;
+    cursor: pointer;
+  }
+
+  img {
+    width: 280px;
+    height: 280px;
+    margin-right: 24px;
+    object-fit: cover;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 16px 0;
+  }
 `

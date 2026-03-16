@@ -16,6 +16,10 @@ export const HeaderContainer = styled.header<Props>`
   font-weight: bold;
   font-size: 18px;
 
+  a {
+    color: ${cores.vermelhoClaro};
+  }
+
   img {
     width: 125px;
     height: 58px;

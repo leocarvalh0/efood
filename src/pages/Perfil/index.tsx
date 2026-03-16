@@ -1,62 +1,31 @@
+import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
-
-import pizza from '../../assets/images/pizza.png'
-import { Product } from '../../models/Product'
 import ProductsList from '../../components/ProductsList'
 import Banner from '../../components/Banner'
-
-const products: Product[] = [
-  {
-    id: 1,
-    image: pizza,
-    title: 'Hioki Sushi',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    image: pizza,
-    title: 'Hioki Sushi',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    image: pizza,
-    title: 'Hioki Sushi',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    image: pizza,
-    title: 'Hioki Sushi',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 5,
-    image: pizza,
-    title: 'Hioki Sushi',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 6,
-    image: pizza,
-    title: 'Hioki Sushi',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  }
-]
+import { Restaurant } from '../Home'
+import { useParams } from 'react-router-dom'
 
 const Perfil = () => {
+  const { id } = useParams()
+
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+
+  useEffect(() => {
+    fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setRestaurant(res))
+  }, [id])
+
+  if (!restaurant) {
+    return <h3>Carregando...</h3>
+  }
+
   return (
     <>
       <Header type="perfil" />
-      <Banner />
+      <Banner restaurant={restaurant} />
       <div className="container">
-        <ProductsList products={products} />
+        <ProductsList restaurants={restaurant?.cardapio || []} />
       </div>
     </>
   )

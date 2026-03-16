@@ -23,7 +23,7 @@ const Header = ({ type }: Props) => {
   return (
     <div style={{ backgroundImage: `url(${fundo})` }}>
       <HeaderContainer className="container" type="perfil">
-        <p>Restaurantes</p>
+        <Link to="/">Restaurantes</Link>
         <Link to="/">
           <img src={efood} alt="Efood" />
         </Link>
