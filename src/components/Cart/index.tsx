@@ -1,5 +1,4 @@
 import { CartContainer, Overlay, SideBar, CartItem, Prices } from './styles'
-import pizza from '../../assets/images/pizza.png'
 import Button from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'

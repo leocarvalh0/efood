@@ -6,7 +6,8 @@ import { useGetRestauranteQuery } from '../../services/api'
 
 const Perfil = () => {
   const { id } = useParams()
-  const { data: restaurant } = useGetRestauranteQuery(id!)
+
+  const { data: restaurant } = useGetRestauranteQuery(id as string)
 
   if (!restaurant) {
     return <h3>Carregando...</h3>
@@ -17,7 +18,7 @@ const Perfil = () => {
       <Header type="perfil" />
       <Banner restaurant={restaurant} />
       <div className="container">
-        <ProductsList restaurants={restaurant?.cardapio || []} />
+        <ProductsList restaurants={restaurant.cardapio || []} />
       </div>
     </>
   )
