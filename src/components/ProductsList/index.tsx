@@ -26,13 +26,15 @@ const ProductsList = ({ restaurants }: Props) => {
     <Container>
       {restaurants.map((product) => (
         <Card
-          preco={product.preco}
           key={product.id}
-          title={product.nome}
-          description={getDescricao(product.descricao)}
-          image={product.foto}
-          type="product"
-          id={product.id}
+          restaurant={{
+            id: product.id,
+            title: product.nome,
+            description: getDescricao(product.descricao),
+            image: product.foto,
+            preco: product.preco,
+            type: 'product'
+          }}
         />
       ))}
     </Container>

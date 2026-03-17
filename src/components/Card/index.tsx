@@ -6,8 +6,10 @@ import Tag from '../Tag'
 import Button from '../Button'
 import fechar from '../../assets/images/fechar.png'
 import { ModalContainer, ModalContent } from './styles'
+import { useDispatch } from 'react-redux'
+import { open, add } from '../../store/Reducers/cart'
 
-export type Props = {
+export type Card = {
   title: string
   destacado?: boolean
   tipo?: string
@@ -19,6 +21,10 @@ export type Props = {
   preco?: number
 }
 
+export type Props = {
+  restaurant: Card
+}
+
 export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -26,21 +32,12 @@ export const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-const Card = ({
-  image,
-  title,
-  description,
-  avaliation,
-  type,
-  destacado,
-  tipo,
-  id,
-  preco
-}: Props) => {
+const Card = ({ restaurant }: Props) => {
   const [modal, setModal] = useState(false)
+  const dispatch = useDispatch()
 
   const estaDestacado = () => {
-    if (destacado) {
+    if (restaurant.destacado) {
       return <Tag>Destaque da semana</Tag>
     }
   }
@@ -49,24 +46,30 @@ const Card = ({
     setModal(false)
   }
 
-  if (type === 'restaurant') {
+  const addToCart = () => {
+    dispatch(open())
+    dispatch(add(restaurant))
+    closeModal()
+  }
+
+  if (restaurant.type === 'restaurant') {
     return (
       <CardContainer type="restaurant">
         <Tags>
           {estaDestacado()}
-          {tipo && <Tag>{tipo}</Tag>}
+          {restaurant.tipo && <Tag>{restaurant.tipo}</Tag>}
         </Tags>
-        <img src={image} alt="Hioki Sushi" />
+        <img src={restaurant.image} alt="Hioki Sushi" />
         <Infos type="restaurant">
           <InfosHeader>
-            <h3>{title}</h3>
+            <h3>{restaurant.title}</h3>
             <Avaliation>
-              <span>{avaliation}</span>
+              <span>{restaurant.avaliation}</span>
               <img src={estrela} alt="Estrela" />
             </Avaliation>
           </InfosHeader>
-          <p>{description}</p>
-          <Button type="link" to={`/restaurantes/${id}`}>
+          <p>{restaurant.description}</p>
+          <Button type="link" to={`/restaurantes/${restaurant.id}`}>
             Saiba mais
           </Button>
         </Infos>
@@ -74,16 +77,15 @@ const Card = ({
     )
   }
 
-  console.log({ image, title, description, preco })
   return (
     <>
       <CardContainer type="product">
-        <img src={image} alt="Hioki Sushi" />
+        <img src={restaurant.image} alt="Hioki Sushi" />
         <Infos type="product">
           <InfosHeader>
-            <h3>{title}</h3>
+            <h3>{restaurant.title}</h3>
           </InfosHeader>
-          <p>{description}</p>
+          <p>{restaurant.description}</p>
           <Button type="button" onClick={() => setModal(true)}>
             Saiba mais
           </Button>
@@ -91,20 +93,20 @@ const Card = ({
       </CardContainer>
       <ModalContainer className={modal ? 'visible' : ''}>
         <ModalContent className="container">
-          <img src={image} alt="Pizza Marguerita" />
+          <img src={restaurant.image} alt="Pizza Marguerita" />
           <div>
             <header>
-              <h4>{title}</h4>
+              <h4>{restaurant.title}</h4>
               <img
                 src={fechar}
                 alt="Ícone de fechar"
                 onClick={() => closeModal()}
               />
             </header>
-            <p>{description}</p>
+            <p>{restaurant.description}</p>
             <p>Serve: de 2 a 3 pessoas</p>
-            <Button type="button">
-              Adicionar ao carrinho - {formataPreco(preco)}
+            <Button type="button" onClick={addToCart}>
+              Adicionar ao carrinho - {formataPreco(restaurant.preco)}
             </Button>
           </div>
         </ModalContent>

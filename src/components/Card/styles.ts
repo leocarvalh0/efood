@@ -1,14 +1,12 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
-import { Props } from '.'
+import { breakpoints, cores } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
-export const CardContainer = styled.div<
-  Omit<
-    Props,
-    'image' | 'title' | 'description' | 'destacado' | 'tipo' | 'id' | 'preco'
-  >
->`
+type CardType = {
+  type: 'product' | 'restaurant'
+}
+
+export const CardContainer = styled.div<CardType>`
   width: ${({ type }) => (type === 'restaurant' ? '472px' : '320px')};
   padding: ${({ type }) => (type === 'restaurant' ? '0' : '8px')};
   position: relative;
@@ -22,21 +20,13 @@ export const CardContainer = styled.div<
     height: ${({ type }) => (type === 'restaurant' ? '217px' : '167px')};
     object-fit: cover;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 90%;
+  }
 `
 
-export const Infos = styled.div<
-  Omit<
-    Props,
-    | 'button'
-    | 'image'
-    | 'title'
-    | 'description'
-    | 'destacado'
-    | 'tipo'
-    | 'id'
-    | 'preco'
-  >
->`
+export const Infos = styled.div<CardType>`
   border: ${({ type }) =>
     type === 'restaurant' ? `1px solid ${cores.vermelhoClaro}` : 'none'};
   border-top: none;
@@ -116,6 +106,15 @@ export const ModalContent = styled.div`
   display: flex;
   z-index: 1;
   position: relative;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    height: 500px;
+
+    h4 {
+      margin-top: 24px;
+    }
+  }
 
   header > img {
     position: absolute;

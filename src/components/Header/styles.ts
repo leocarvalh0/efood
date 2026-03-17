@@ -1,12 +1,13 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 import { Props } from '.'
 
 export const HeaderContainer = styled.header<Props>`
+  width: 100%;
   display: ${({ type }) => (type === 'home' ? '' : 'flex')};
   background-repeat: no-repeat;
-  background-size: size;
+  background-size: cover;
   justify-content: ${({ type }) => (type === 'home' ? '' : 'space-between')};
   align-items: ${({ type }) => (type === 'home' ? '' : 'center')};
   height: ${({ type }) => (type === 'home' ? '384px' : '186px')};
@@ -30,5 +31,29 @@ export const HeaderContainer = styled.header<Props>`
     width: 539px;
     margin: 0 auto;
     font-size: 36px;
+  }
+
+  button {
+    cursor: pointer;
+    color: ${cores.vermelhoClaro};
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    justify-content: space-between;
+    height: ${({ type }) => (type === 'home' ? '284px' : '186px')};
+
+    h1 {
+      width: 90%;
+      font-size: 24px;
+    }
+
+    img {
+      margin-top: ${({ type }) => (type === 'home' ? '0' : '8px')};
+      margin-bottom: ${({ type }) => (type === 'home' ? '40px' : '0')};
+    }
   }
 `

@@ -18,15 +18,17 @@ const RestaurantsList = ({ restaurants }: Restaurants) => {
     <Container>
       {restaurants.map((restaurant) => (
         <Card
-          type="restaurant"
-          image={restaurant.capa}
-          description={getDescricao(restaurant.descricao)}
-          avaliation={restaurant.avaliacao}
-          title={restaurant.titulo}
           key={restaurant.id}
-          destacado={restaurant.destacado}
-          tipo={restaurant.tipo}
-          id={restaurant.id}
+          restaurant={{
+            id: restaurant.id,
+            title: restaurant.titulo,
+            description: getDescricao(restaurant.descricao),
+            image: restaurant.capa,
+            avaliation: restaurant.avaliacao,
+            destacado: restaurant.destacado,
+            tipo: restaurant.tipo,
+            type: 'restaurant'
+          }}
         />
       ))}
     </Container>
